@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Capital Connect Design System - Modern, techy, premium */
+
+@layer base {
+  :root {
+    /* Enhanced multi-layered gradient background */
+    --gradient-primary: linear-gradient(135deg, hsl(210, 100%, 35%) 0%, hsl(220, 90%, 55%) 25%, hsl(230, 85%, 65%) 50%, hsl(240, 90%, 70%) 75%, hsl(250, 95%, 75%) 100%);
+    
+    /* Text gradient for brand title */
+    --text-gradient: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(210, 100%, 85%) 50%, hsl(240, 100%, 90%) 100%);
+    
+    /* Core colors */
+    --background: 210 100% 56%;
+    --foreground: 0 0% 100%;
+    
+    /* Brand blue */
+    --brand-blue: 210 100% 56%;
+    --brand-blue-glow: 210 100% 56%;
+    
+    /* Input system */
+    --input-bg: 0 0% 100%;
+    --input-border: 220 13% 91%;
+    --input-focus: 210 100% 56%;
+    
+    /* Components */
+    --card: 220 40% 13%;
+    --card-foreground: 0 0% 100%;
+    
+    --primary: 210 100% 56%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 220 35% 20%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 220 35% 20%;
+    --muted-foreground: 0 0% 70%;
+    
+    --accent: 210 100% 56%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 13% 91%;
+    --input: 0 0% 100%;
+    --ring: 210 100% 56%;
+    
+    --radius: 0.75rem;
+    
+    /* Custom glow effects */
+    --glow-blue: 0 0 20px hsl(210 100% 56% / 0.3);
+    --glow-blue-intense: 0 0 30px hsl(210 100% 56% / 0.5);
+    --text-shadow-blue: 0 0 10px hsl(210 100% 56% / 0.6);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background: var(--gradient-primary);
+    @apply text-foreground font-inter;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .brand-title {
+    font-size: 5rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.05em;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 1.5rem 3rem;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 0 40px rgba(33, 150, 243, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Mobile-only adjustments to keep full title visible */
+  @media (max-width: 639px) {
+    .brand-title {
+      font-size: 2.5rem;
+      padding: 0.75rem 1rem;
+      border-radius: 16px;
+      overflow: visible; /* prevent clipping on small screens */
+      white-space: normal; /* allow wrapping if needed */
+      line-height: 1.1;
+    }
+  }
+  
+  .brand-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  }
+  
+  .brand-tagline {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: hsl(var(--foreground));
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  .email-input {
+    background: hsl(var(--input-bg));
+    border: 2px solid hsl(var(--input-border));
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    color: hsl(var(--background));
+    transition: all 0.3s ease;
+    width: 70%;
+  }
+  
+  .email-input:focus {
+    outline: none;
+    border-color: hsl(var(--input-focus));
+    box-shadow: var(--glow-blue);
+  }
+  
+  .submit-button {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: 2px solid hsl(var(--primary));
+    border-radius: var(--radius);
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--glow-blue);
+    min-width: 120px;
+  }
+  
+  .submit-button:hover {
+    box-shadow: var(--glow-blue-intense);
+    transform: translateY(-2px);
+    animation: jiggle 0.3s ease-in-out;
+  }
+  
+  @keyframes jiggle {
+    0%, 100% { transform: translateY(-2px) rotate(0deg); }
+    25% { transform: translateY(-2px) rotate(-1deg); }
+    75% { transform: translateY(-2px) rotate(1deg); }
+  }
+  
+  .privacy-link {
+    color: hsl(var(--muted-foreground));
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+  }
+  
+  .privacy-link:hover {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Success glass box */
+  .success-glass-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    margin-top: 2rem;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 0 30px rgba(33, 150, 243, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .success-glass-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  }
+  
+  .success-message {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'San Francisco', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+  }
+}
